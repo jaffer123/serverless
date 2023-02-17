@@ -1,0 +1,15 @@
+
+
+service: s3-media
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${opt:region,'ap-south-1'}
+  environment:
+    STAGE: ${opt:stage,'dev'}
+
+functions:
+  media:
+    handler: functions/media.handler
